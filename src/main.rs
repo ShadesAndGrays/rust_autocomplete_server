@@ -47,9 +47,10 @@ fn add_word(word:&str){
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build()
+    let rocket =    rocket::build()
         .mount("/",routes![index])
         .mount("/math",routes![add])
-        .mount("/complete",routes![search])
-        .mount("/complete", routes![add_word])
+        .mount("/complete",routes![search,add_word]);
+
+        rocket
 }
